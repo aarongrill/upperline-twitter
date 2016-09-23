@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
         @tweet3 = Tweet.new("upperlinecode", "Our students can build Twitter, can yours?")
         @tweet4 = Tweet.new("flatironschool", "#outsidethelines")
         @tweet5 = Tweet.new("flatironschool", "Developers Developers Developers!")
-        @tweets = [@tweet1, @tweet2, @tweet3, @tweet4, @tweet5]
+        @tweets = Tweet.all
         erb :index
     end
 
