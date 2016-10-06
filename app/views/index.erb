@@ -10,7 +10,7 @@
     <ul>
         <% @tweets.each do |tweet| %>
             <li>
-                <%= tweet.text %>
+                <%= tweet.username %>: <%= tweet.status %>
             </li>
         <% end %> 
         
