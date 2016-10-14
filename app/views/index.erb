@@ -1,16 +1,21 @@
-<div class="container">
-    <h1> TEST</h1>
-    <ul>
-        <% @tweets.each do |tweet| %>
-            <li>
-                <%= tweet.username %>: <%= tweet.status %>
-            </li>
-        <% end %> 
+
+    <div class="row">
+        <div class="jumbotron">
+            <h1> Twitter</h1>
+            <p><a class="btn btn-primary btn-lg" href="/tweet" role="button">Write a Tweet</a></p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+           <% @tweets.each do |tweet| %>
+                <div class="alert alert-info" role="alert"><%= tweet.username %>: <%= tweet.status %></div>
+            <% end %>  
+        </div>
+        <div class="col-md-4">
+            
+        </div>
         
-        <form method="post" action="/tweets">
-          <p>Username: </p><input type="text" name="username">
-          <p>Status: </p><input type="text" name="status">
-          <input type="submit">
-        </form>
-    </ul>
-</div>
+    </div>
+    

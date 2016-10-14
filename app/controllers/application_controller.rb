@@ -9,15 +9,18 @@ class ApplicationController < Sinatra::Base
     end
 
 
-    get '/tweets' do
+    get '/' do
         @tweets = Tweet.all
         erb :index
     end
     
+    get '/tweet' do
+        erb :tweet
+    end
+    
     post '/tweets'do
-        @tweet = Tweet.new(params)
-        @tweet.save
-        redirect to '/tweets'
+        @tweet = Tweet.create(params)
+        redirect to '/'
     end
 
 end

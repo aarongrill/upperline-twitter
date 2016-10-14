@@ -1,10 +1,20 @@
 <!doctype html>
 <html>
   <head>
-    <title>Week 1</title>
+    <title>Week 2</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="/tweet"><button type="button" class="btn btn-default navbar-btn">Tweet</button></a>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
