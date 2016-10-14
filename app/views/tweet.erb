@@ -3,7 +3,11 @@
 <form method="POST" action="/tweets">
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" placeholder="Your Username" name="username">
+    <select class="form-control" id="username" name="user_id">
+      <% @users.each do |user| %>
+        <option value="<%= user.id %>"><%= user.username %></option>
+      <% end %>
+    </select>
   </div>
   <div class="form-group">
     <label for="status">Status</label>

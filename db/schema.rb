@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006141304) do
+ActiveRecord::Schema.define(version: 20161014220739) do
 
   create_table "tweets", force: :cascade do |t|
+    t.string  "status"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "status"
+    t.string "email"
   end
 
 end

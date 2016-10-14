@@ -3,6 +3,7 @@
         <div class="jumbotron">
             <h1> Twitter</h1>
             <p><a class="btn btn-primary btn-lg" href="/tweet" role="button">Write a Tweet</a></p>
+            <p><a class="btn btn-primary btn-lg" href="/user" role="button">Register a User</a></p>
         </div>
     </div>
     
@@ -10,7 +11,7 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
            <% @tweets.each do |tweet| %>
-                <div class="alert alert-info" role="alert"><%= tweet.username %>: <%= tweet.status %></div>
+                <div class="alert alert-info" role="alert"><%= tweet.user.username %>: <%= tweet.status %></div>
             <% end %>  
         </div>
         <div class="col-md-4">
