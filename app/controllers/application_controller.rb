@@ -3,19 +3,39 @@ require './app/models/tweet'
 require './app/models/user'
 
 class ApplicationController < Sinatra::Base
+    use Rack::Session::Cookie
 
     configure do
         set :public_folder, 'public'
         set :views, 'app/views'
     end
+    
 
     get '/' do
         @tweets = Tweet.all
+        if session[:user_id]
+            @user = User.find(session[:user_id])
+        end
         erb :index
     end
     
+    post '/login' do
+        user = User.find_by(username: params[:username], email: params[:email])
+        if user
+            session[:user_id] = user.id
+            redirect to '/'
+        else
+            "Incorrect Credentials"
+        end
+    end
+    
+    get '/logout' do
+        session.delete(:user_id)
+        redirect to '/'
+    end
+    
     get '/tweets/new' do
-        @users = User.all
+        @user = User.find(session[:user_id])
         erb :new_tweet
     end
     

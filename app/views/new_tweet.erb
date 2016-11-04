@@ -1,14 +1,7 @@
 
-
+<h2>New Tweet for <%= @user.username %></h2>
 <form method="POST" action="/tweets/create">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <select class="form-control" id="username" name="user_id">
-      <% @users.each do |user| %>
-        <option value="<%= user.id %>"><%= user.username %></option>
-      <% end %>
-    </select>
-  </div>
+  <input type="hidden" name="user_id" value=<%=@user.id%>>
   <div class="form-group">
     <label for="status">Status</label>
     <input type="text" class="form-control" id="status" placeholder="Status" name="status">
