@@ -9,7 +9,6 @@ class ApplicationController < Sinatra::Base
         set :views, 'app/views'
     end
 
-
     get '/' do
         @tweets = Tweet.all
         erb :index
@@ -22,6 +21,12 @@ class ApplicationController < Sinatra::Base
     
     post '/tweets/create'do
         @tweet = Tweet.create(params)
+        redirect to '/'
+    end
+    
+    get '/tweets/:id/delete' do 
+        @tweet = Tweet.find(params[:id])
+        @tweet.delete
         redirect to '/'
     end
     
@@ -47,6 +52,13 @@ class ApplicationController < Sinatra::Base
     get '/users/:id' do
         @user = User.find(params[:id])
         erb :show_user
+    end
+    
+    get '/users/:id/delete' do
+        @user = User.find(params[:id])
+        @user.tweets.delete_all
+        @user.delete
+        redirect to '/'
     end
 
 end

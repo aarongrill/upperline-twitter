@@ -1,7 +1,10 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <div class="alert alert-info" role="alert"><%= @tweet.user.username %>: <%= @tweet.status %></div>
+            <div class="alert alert-info" role="alert">
+                <h4><%= @tweet.user.username %>: <%= @tweet.status %></h4>
+                <a href="/tweets/<%=@tweet.id %>/delete">delete</a>
+            </div>
         </div>
         <div class="col-md-4">
             
