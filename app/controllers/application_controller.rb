@@ -4,6 +4,7 @@ require './app/models/user'
 
 class ApplicationController < Sinatra::Base
     use Rack::Session::Cookie
+    set :session_secret, 'super secret'
 
     configure do
         set :public_folder, 'public'
